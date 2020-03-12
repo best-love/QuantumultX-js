@@ -1,0 +1,19 @@
+const vip_urls = [
+  '/api/account/IndexDetail',
+  '/api/account/UserSetting',
+  '/api/account/IsVip'
+  '/api/account/TabRedTip',
+  '/api/Account/Suport',
+  '/api/cartoon/VipInfo',
+  '/api/cartoon/indexNew/*',
+  '/api/cartoon/LookPhotoVip/*',
+  '/api/cartoon/CheckCartoonVip/*',
+  '/api/cartoon/GetAllTagNew',
+  '/api/Adv/VuePage/*',
+  '/api/PictureSet/OpenPictureSetFree',
+  '/api/PictureSet/LookPhoto/*',
+  '/api/Download/CheckDownloadTorrent',
+  '/api/Movie/Commoent/*',
+  '/api/Movie/WatchMovie',
+  '/api/video/watch/*'
+];
