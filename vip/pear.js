@@ -1,14 +1,14 @@
 const vip_urls = [
   '/api/account/IndexDetail',
+  '/api/account/IsVip',
   '/api/account/UserSetting',
-  '/api/account/IsVip'
   '/api/account/TabRedTip',
   '/api/Account/Suport',
   '/api/cartoon/VipInfo',
+  '/api/cartoon/GetAllTagNew',
   '/api/cartoon/indexNew/*',
   '/api/cartoon/LookPhotoVip/*',
   '/api/cartoon/CheckCartoonVip/*',
-  '/api/cartoon/GetAllTagNew',
   '/api/Adv/VuePage/*',
   '/api/PictureSet/OpenPictureSetFree',
   '/api/PictureSet/LookPhoto/*',
