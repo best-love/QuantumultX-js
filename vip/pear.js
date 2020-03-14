@@ -49,6 +49,6 @@ body = body.replace('"hadWach":false', '"hadWach":true');
 body = body.replace('"canWach":false', '"canWach":true');
 
 /*解锁小视频限制vip观看*/
-body = body.replace(/"vTag":"1"/g, '"vTag":"0"');
+body = body.replace(/\"vTag\":\"\d\"/g, '"vTag":"0"');
 
 $done({body: body});
