@@ -2,7 +2,7 @@
 * 使用方法
 * [MINT] hostname = m.pearkin.com
 * # 雪梨Pear全局VIP
-* ^https://m.pearkin.com/(api/account/IndexDetail|api/account/IsVip|api/account/UserSetting|api/account/TabRedTip|api/Account/Suport|api/cartoon/VipInfo|api/cartoon/GetAllTagNew|api/cartoon/indexNew/.*|api/cartoon/LookPhotoVip/.*|api/cartoon/CheckCartoonVip/.*|api/Adv/VuePage/.*|api/PictureSet/OpenPictureSetFree|api/PictureSet/LookPhoto/.*|api/Download/CheckDownloadTorrent|api/Movie/Commoent/.*|api/Movie/WatchMovie|api/video/watch/.*) url script-response-body QuantumultX-js/vip/pear.js
+* ^https://m.pearkin.com/(api/account/IndexDetail|api/account/IsVip|api/account/UserSetting|api/account/TabRedTip|api/Account/Suport|api/cartoon/VipInfo|api/cartoon/GetAllTagNew|api/cartoon/indexNew/.*|api/cartoon/LookPhotoVip/.*|api/cartoon/CheckCartoonVip/.*|api/Adv/VuePage/.*|api/PictureSet/OpenPictureSetFree|api/PictureSet/LookPhoto/.*|api/Download/CheckDownloadTorrent|api/Movie/Commoent/.*|api/Movie/WatchMovie|api/video/watch/.*|api/video/Index/.*) url script-response-body QuantumultX-js/vip/pear.js
 */
 
 const vip_urls = [
@@ -22,7 +22,8 @@ const vip_urls = [
   '/api/Download/CheckDownloadTorrent',
   '/api/Movie/Commoent/*',
   '/api/Movie/WatchMovie',
-  '/api/video/watch/*'
+  '/api/video/watch/*',
+  '/api/video/Index/.*'
 ];
 
 let body = $response.body;
@@ -46,5 +47,8 @@ body = body.replace('"isBackShow":false', '"isBackShow":true');
 body = body.replace('"value":false', '"value":true');
 body = body.replace('"hadWach":false', '"hadWach":true');
 body = body.replace('"canWach":false', '"canWach":true');
+
+/*解锁小视频限制vip观看*/
+body = body.replace(/"vTag":"1"/g, '"vTag":"0"');
 
 $done({body: body});
