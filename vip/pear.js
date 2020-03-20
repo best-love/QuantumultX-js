@@ -15,6 +15,7 @@ const vip_urls = [
   '/api/cartoon/GetAllTagNew',
   '/api/cartoon/indexNew/*',
   '/api/cartoon/LookPhotoVip/*',
+  '/api/Cartoon/LookPhoto/*',
   '/api/cartoon/CheckCartoonVip/*',
   '/api/Adv/VuePage/*',
   '/api/PictureSet/OpenPictureSetFree',
