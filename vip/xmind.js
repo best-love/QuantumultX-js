@@ -15,6 +15,6 @@ let vipBody = {
   "_code": 200
 };
 
-body = JSON.stringfiy(vipBody);
+body = JSON.stringify(vipBody);
 
 $done({body: body});
