@@ -2,9 +2,9 @@
 * 使用方法
 * [MINT] hostname = www.xmind.cn
 * # XMind解锁订阅VIP
-* ^https://app.edujia.com/keyboard/vip/query/info.do url script-response-body QuantumultX-js/vip/wm_keyboard.js
+* ^https://www.xmind.cn/_res/devices url script-response-body QuantumultX-js/vip/xmind.js
 */
-let body = $response.body;
+// let body = $response.body;
 
 let vipBody = {
   "raw_data": "DBcBHgojrvPgruIJMfb4KK/76CmjxSHSp9KipRwOnQUuf+Gt2FncFUzNvxZydUeXEzDZt/XWEm91lHFYrvT0f2AFap2L4psLI/34sKU9VLGH7kFsBYlexU/nifBtosMJqQxL4TU1pjvjl+1uyWsFAeGR42aEnVhQWgvJB5Ovcd0=",
@@ -15,6 +15,6 @@ let vipBody = {
   "_code": 200
 };
 
-body = JSON.stringify(vipBody);
+let body = JSON.stringify(vipBody);
 
 $done({body: body});
