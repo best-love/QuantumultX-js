@@ -24,7 +24,8 @@ const vip_urls = [
   '/api/Movie/Commoent/*',
   '/api/Movie/WatchMovie',
   '/api/video/watch/*',
-  '/api/video/Index/.*'
+  '/api/video/Index/.*',
+  '/api/video/index/*'
 ];
 
 let body = $response.body;
