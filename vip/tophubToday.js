@@ -11,6 +11,8 @@ let body = $response.body;
 let bodyObj = JSON.parse(body);
 let url = $request.url;
 let data = bodyObj.data;
+console.log(url);
+console.log(url.indexOf('account'));
 if (url.indexOf('account') != -1) {
   /*用户中心*/
   data = {
