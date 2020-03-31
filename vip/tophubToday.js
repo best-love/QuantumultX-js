@@ -27,6 +27,5 @@ if (url.indexOf('account') != -1) {
   if (!bodyObj.data.alerts) bodyObj.data.alerts = [];
   if (!bodyObj.data.items) bodyObj.data.items = [];
 }
-console.log(JSON.stringify(bodyObj));
 
 $done({body: JSON.stringify(bodyObj)});
