@@ -39,8 +39,9 @@ function doMerge(){
   step.setdata(step_key, newStepCount);
   let body = $request.body;
   let bodyObj = JSON.parse(body);
-  bodyObj.step = newStepCount;
+  bodyObj.list[0].step = newStepCount;
   step.done({body: JSON.stringify(bodyObj)});
+  step.msg(`乐心运动`, `步数修改: 成功`, ``);
 }
 
 function randomStep(){
