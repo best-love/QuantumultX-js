@@ -38,10 +38,9 @@ function doMerge(){
   do {
     newStepCount = randomStep();
   } while (stepCount == newStepCount);
-  // step.setdata(time_key, curTime);
-  // step.setdata(step_key, newStepCount);
+  step.setdata(time_key, curTime);
+  step.setdata(step_key, newStepCount);
   let body = $request.body;
-  console.log(body);
   let bodyObj = JSON.parse(body);
   bodyObj.list[0].step = newStepCount;
   step.done({body: JSON.stringify(bodyObj)});
