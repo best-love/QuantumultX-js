@@ -14,7 +14,8 @@ if (!time || time == '') {
   // 未设置过
   if (!isOffTime(curTime)) {
     // 未超出指定时间
-      step.done();
+    step.done();
+    step.msg(`乐心运动`, `时间早于8点，请晚点再试`, ``);
   } else {
     doMerge();
   }
@@ -22,12 +23,14 @@ if (!time || time == '') {
   // 上次设置不是今天
   if (!isOffTime(curTime)) {
     // 未超出指定时间
-      step.done();
+    step.done();
+    step.msg(`乐心运动`, `时间早于8点，请晚点再试`, ``);
   } else {
     doMerge();
   }
 } else {
   step.done();
+  step.msg(`乐心运动`, `今天已经设置过`, ``);
 }
 /*修改*/
 function doMerge(){
@@ -35,9 +38,10 @@ function doMerge(){
   do {
     newStepCount = randomStep();
   } while (stepCount == newStepCount);
-  step.setdata(time_key, curTime);
-  step.setdata(step_key, newStepCount);
+  // step.setdata(time_key, curTime);
+  // step.setdata(step_key, newStepCount);
   let body = $request.body;
+  console.log(body);
   let bodyObj = JSON.parse(body);
   bodyObj.list[0].step = newStepCount;
   step.done({body: JSON.stringify(bodyObj)});
