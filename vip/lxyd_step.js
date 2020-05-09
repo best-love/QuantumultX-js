@@ -30,7 +30,7 @@ if (!time || time == '') {
   }
 } else {
   step.done();
-  step.msg(`乐心运动`, `今天已经设置过`, ``);
+  step.msg(`乐心运动`, `今天已经设置过,无需重复设置。`, ``);
 }
 /*修改*/
 function doMerge(){
@@ -44,7 +44,8 @@ function doMerge(){
   let bodyObj = JSON.parse(body);
   bodyObj.list[0].step = newStepCount;
   step.done({body: JSON.stringify(bodyObj)});
-  step.msg(`乐心运动`, `步数修改: 成功`, ``);
+  step.msg(`乐心运动`, `步数修改: 成功
+    设置步数：${newStepCount}`, ``);
 }
 
 function randomStep(){
@@ -65,7 +66,7 @@ function init() {
     return $prefs.valueForKey(key)
   }
   setdata = (key, val) => {
-    return $prefs.setValueForKey(key, val)
+    return $prefs.setValueForKey(val, key)
   }
   msg = (title, subtitle, body) => {
     $notify(title, subtitle, body)
