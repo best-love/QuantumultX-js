@@ -4,7 +4,7 @@
 * # 乐心运动刷步数
 */
 const step = init();
-const time_key = 'yd_xg_time';  /*运动修改时间，防止重复修改每日只修改一次，且必须过早晨8点*/
+const time_key = 'yd_xg_time';  /*运动修改时间，防止重复修改每日只修改一次，且必须过早晨9点*/
 const step_key = 'yd_step_count'; /*修改的步数*/
 
 let time = step.getdata(time_key);
@@ -15,7 +15,7 @@ if (!time || time == '') {
   if (!isOffTime(curTime)) {
     // 未超出指定时间
     step.done();
-    step.msg(`乐心运动`, `时间早于8点，请晚点再试`, ``);
+    step.msg(`乐心运动`, `时间早于9点，请晚点再试`, ``);
   } else {
     doMerge();
   }
@@ -24,7 +24,7 @@ if (!time || time == '') {
   if (!isOffTime(curTime)) {
     // 未超出指定时间
     step.done();
-    step.msg(`乐心运动`, `时间早于8点，请晚点再试`, ``);
+    step.msg(`乐心运动`, `时间早于9点，请晚点再试`, ``);
   } else {
     doMerge();
   }
@@ -37,15 +37,14 @@ function doMerge(){
   let newStepCount = -1;
   do {
     newStepCount = randomStep();
-  } while (stepCount == newStepCount);
-  step.setdata(time_key, curTime);
-  step.setdata(step_key, newStepCount);
+  } while (parseInt(stepCount) == newStepCount);
+  step.setdata(time_key, curTime + '');
+  step.setdata(step_key, newStepCount + '');
   let body = $request.body;
   let bodyObj = JSON.parse(body);
   bodyObj.list[0].step = newStepCount;
   step.done({body: JSON.stringify(bodyObj)});
-  step.msg(`乐心运动`, `步数修改: 成功
-    设置步数：${newStepCount}`, ``);
+  step.msg(`乐心运动`, `步数修改: 成功`, `设置步数：${newStepCount}`);
 }
 
 function randomStep(){
@@ -54,11 +53,11 @@ function randomStep(){
 
 /*是否今天*/
 function isToday(timelong){
-  return new Date().toDateString() === new Date(timelong).toDateString();
+  return new Date().toDateString() === new Date(parseInt(timelong)).toDateString();
 }
 /*是否超出指定限定时间*/
 function isOffTime(timelong){
-  return new Date(timelong).getHours() >= 8;
+  return new Date(parseInt(timelong)).getHours() >= 9;
 }
 
 function init() {
