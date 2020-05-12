@@ -34,15 +34,21 @@ if (!time || time == '') {
 }
 /*修改*/
 function doMerge(){
+  let body = $request.body;
+  let bodyObj = JSON.parse(body);
+  if (bodyObj.list.length <= 1) {
+    step.done();
+    return;
+  }
   let newStepCount = -1;
   do {
     newStepCount = randomStep();
   } while (parseInt(stepCount) == newStepCount);
   step.setdata(time_key, curTime + '');
   step.setdata(step_key, newStepCount + '');
-  let body = $request.body;
-  let bodyObj = JSON.parse(body);
-  bodyObj.list[0].step = newStepCount;
+  for (var i = 0; i < bodyObj.list.length; i++) {
+    bodyObj.list[i].step = newStepCount;
+  }
   step.done({body: JSON.stringify(bodyObj)});
   step.msg(`乐心运动`, `步数修改: 成功`, `设置步数：${newStepCount}`);
 }
