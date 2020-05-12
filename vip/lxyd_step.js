@@ -54,7 +54,7 @@ function doMerge(){
 }
 
 function randomStep(){
-  return 12000 + parseInt(10000 * Math.random());
+  return 6000 + parseInt(9000 * Math.random());
 }
 
 /*是否今天*/
