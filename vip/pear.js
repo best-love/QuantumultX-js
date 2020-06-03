@@ -30,27 +30,27 @@ const vip_urls = [
 
 let body = $response.body;
 
-body = body.replace('"vipEndTime":"2020-03-01"', '"vipEndTime":"2099-03-01"');
-body = body.replace('"vipEndTime":null', '"vipEndTime":"2099-03-01"');
+body = body.replace('\"vipEndTime\":\"2020-03-01\"', '\"vipEndTime\":\"2099-03-01\"');
+body = body.replace('\"vipEndTime\":null', '\"vipEndTime\":\"2099-03-01\"');
 /*数值型*/
-body = body.replace('"vipLevel":0', '"vipLevel":3');
-body = body.replace('"level":0', '"level":3');
-body = body.replace('"surplusCount":0', '"surplusCount":1');
-body = body.replace('"loadCount":null', '"loadCount":60');
-body = body.replace('"count":0', '"count":99');
-body = body.replace('"vip":null', '"vip":3');
+body = body.replace('\"vipLevel\":0', '\"vipLevel\":3');
+body = body.replace('\"level\":0', '\"level\":3');
+body = body.replace('\"surplusCount\":0', '\"surplusCount\":1');
+body = body.replace('\"loadCount\":null', '\"loadCount\":60');
+body = body.replace('\"count\":0', '\"count\":99');
+body = body.replace('\"vip\":null', '\"vip\":3');
 /*bool型*/
-body = body.replace('"orderVip":false', '"orderVip":true');
-body = body.replace('"isVip":false', '"isVip":true');
-body = body.replace('"hadRead":false', '"hadRead":true');
-body = body.replace('"cartoonVip":false', '"cartoonVip":true');
-body = body.replace('"isSkip":false', '"isSkip":true');
-body = body.replace('"isBackShow":false', '"isBackShow":true');
-body = body.replace('"value":false', '"value":true');
-body = body.replace('"hadWach":false', '"hadWach":true');
-body = body.replace('"canWach":false', '"canWach":true');
+body = body.replace('\"orderVip\":false', '\"orderVip\":true');
+body = body.replace('\"isVip\":false', '\"isVip\":true');
+body = body.replace('\"hadRead\":false', '\"hadRead\":true');
+body = body.replace('\"cartoonVip\":false', '\"cartoonVip\":true');
+body = body.replace('\"isSkip\":false', '\"isSkip\":true');
+body = body.replace('\"isBackShow\":false', '\"isBackShow\":true');
+body = body.replace('\"value\":false', '\"value\":true');
+body = body.replace('\"hadWach\":false', '\"hadWach\":true');
+body = body.replace('\"canWach\":false', '\"canWach\":true');
 
 /*解锁小视频限制vip观看*/
-body = body.replace(/\"vTag\":\"\d\"/g, '"vTag":"0"');
+body = body.replace(/\\"vTag\\":\\"\d\\"/g, '\"vTag\":\"0\"');
 
 $done({body: body});
