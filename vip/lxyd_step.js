@@ -52,9 +52,9 @@ function doMerge(){
   step.done({body: JSON.stringify(bodyObj)});
   step.msg(`乐心运动`, `步数修改: 成功`, `设置步数：${newStepCount}`);
 }
-
+/*低调*/
 function randomStep(){
-  return 10000 + parseInt(9000 * Math.random());
+  return 6000 + parseInt(2000 * Math.random());
 }
 
 /*是否今天*/
