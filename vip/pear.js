@@ -1,10 +1,9 @@
 /*
 * 使用方法
-* [MINT] hostname = m.pearkin.com
+* [MINT] hostname = m.pearkin.com, ps.leachu.com, s1.wangjulong.com, ayk.tmdidi.com, www.baidu.com2.club, souhu.mett.me, bkcd.b-cdn.net,
 * # 雪梨Pear全局VIP
-* ^https://m.pearkin.com/(api/account/IndexDetail|api/account/IsVip|api/account/UserSetting|api/account/TabRedTip|api/Account/Suport|api/cartoon/VipInfo|api/cartoon/GetAllTagNew|api/cartoon/indexNew/.*|api/cartoon/LookPhotoVip/.*|api/cartoon/CheckCartoonVip/.*|api/Adv/VuePage/.*|api/PictureSet/OpenPictureSetFree|api/PictureSet/LookPhoto/.*|api/Download/CheckDownloadTorrent|api/Movie/Commoent/.*|api/Movie/WatchMovie|api/video/watch/.*|api/video/Index/.*) url script-response-body QuantumultX-js/vip/pear.js
 */
-
+// 涉及到vip修改的口
 const vip_urls = [
   '/api/account/IndexDetail',
   '/api/account/IsVip',
@@ -25,7 +24,16 @@ const vip_urls = [
   '/api/Movie/WatchMovie',
   '/api/video/watch/*',
   '/api/video/Index/.*',
-  '/api/video/index/*'
+  '/api/video/index/*',
+
+  /*以下为新增*/
+  '/api/download/UserAndDownloadInfo',
+  '/api/movie/UserRecomMovie.*',
+  '/api/supportAct/HomeCustomInfo',
+  '/api/account/Milk',
+  '/api/video/WatchCount',
+  '/api/adv/VuePage/*',
+  '/api/Account/CheckVip'
 ];
 
 let body = $response.body;
@@ -103,6 +111,19 @@ function doChange(key, obj) {
       break;
     case 'vTag':
       val = 0;
+      break;
+
+    case 'czn':
+      val = true;
+      break;
+    case 'milkLevel':
+      val = 3;
+      break;
+    case 'hadDiscount':
+      val = true;
+      break;
+    case 'todayCanWatchCount':
+      val = 999;
       break;
   }
   return val;
