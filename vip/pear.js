@@ -101,7 +101,7 @@ function doChange(key, obj) {
       val = true;
       break;
     case 'value':
-      val === false && val = true;
+      if (val == false) val = true;
       break;
     case 'hadWach':
       val = true;
