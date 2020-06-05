@@ -39,7 +39,6 @@ const vip_urls = [
 let body = $response.body;
 let obj = JSON.parse(body);
 let vipObj = upLockVip(obj);
-$notify('正在重写', '重写中', JSON.stringify(vipObj));
 $done({body: JSON.stringify(vipObj)});
 
 /*解锁vip*/
